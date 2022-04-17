@@ -7,10 +7,15 @@ const Blogs = () => {
       <h2 className="text-center text-info">Questions</h2>
       <Card>
         <Card.Body>
-          <Card.Title>Card Title</Card.Title>
+          <Card.Title>
+            What is difference between authorization and authentication?
+          </Card.Title>
           <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            Authentication is simply telling who you are and authorization is
+            what you can do based on who you are
+            <p>
+              <strong>Authentication:</strong>
+            </p>
           </Card.Text>
         </Card.Body>
       </Card>
