@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -11,7 +12,9 @@ const Header = () => {
             <Nav.Link href="#home">Services</Nav.Link>
             <Nav.Link href="#features">Blogs</Nav.Link>
             <Nav.Link href="#pricing">About</Nav.Link>
-            <Nav.Link href="#pricing">Login</Nav.Link>
+            <Link className="nav-link" to="/login">
+              Login
+            </Link>
           </Nav>
         </Container>
       </Navbar>
