@@ -7,10 +7,13 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { sendEmailVerification } from "firebase/auth";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Signup = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+  let errorMassage;
 
   const navigate = useNavigate();
 
@@ -24,6 +27,11 @@ const Signup = () => {
     navigate("/home");
 
     console.log(email, password, name);
+    if (error) {
+      errorMassage = (
+        <p className="text-danger my-3 text-center">{error?.message}</p>
+      );
+    }
   };
   return (
     <div>
@@ -65,6 +73,8 @@ const Signup = () => {
             />
           </FloatingLabel>
 
+          {errorMassage}
+
           <p className="mt-3">
             Already Have An Account ? <Link to="/login">Login</Link>
           </p>
@@ -73,6 +83,7 @@ const Signup = () => {
           </Button>
         </Form>
       </div>
+      <SocialLogin></SocialLogin>
     </div>
   );
 };

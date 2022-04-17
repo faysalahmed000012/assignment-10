@@ -1,15 +1,25 @@
-import React, { useState } from "react";
-import { Button, FloatingLabel, Form } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import React, { useRef, useState } from "react";
+import { Button, FloatingLabel, Form, Spinner } from "react-bootstrap";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import Loading from "../Shared/Loading/Loading";
+import SocialLogin from "./SocialLogin/SocialLogin";
 
 const Login = () => {
+  const emailRef = useRef("");
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending, resetError] =
+    useSendPasswordResetEmail(auth);
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
+
+  let errorMassage;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,8 +30,27 @@ const Login = () => {
 
     console.log(email, password);
   };
+
+  const handleResetPassword = async () => {
+    const email = emailRef.current.value;
+    if (email) {
+      await sendPasswordResetEmail(email);
+      alert("email sent");
+    } else {
+      alert("please provide an email");
+    }
+  };
+
   if (user) {
     navigate(from, { replace: true });
+  }
+  if (error) {
+    errorMassage = (
+      <p className="text-danger my-3 text-center">{error?.message}</p>
+    );
+  }
+  if (loading) {
+    <Loading></Loading>;
   }
   return (
     <div>
@@ -36,6 +65,7 @@ const Login = () => {
             className="mb-3"
           >
             <Form.Control
+              ref={emailRef}
               type="email"
               name="email"
               placeholder="name@example.com"
@@ -50,15 +80,23 @@ const Login = () => {
               required
             />
           </FloatingLabel>
+          {errorMassage}
 
           <p className="mt-3">
             New Here ? <Link to="/signup">Sign Up</Link>
+          </p>
+          <p>
+            Forgot Password ?{" "}
+            <button onClick={handleResetPassword} className="btn btn-link">
+              Reset Password
+            </button>{" "}
           </p>
           <Button className="mx-auto d-block" variant="primary" type="submit">
             Login
           </Button>
         </Form>
       </div>
+      <SocialLogin></SocialLogin>
     </div>
   );
 };
