@@ -1,0 +1,44 @@
+[
+  {
+    "id": "625ba00745b452fb450aa061",
+    "price": "$2,779.16",
+    "picture": "./Pictures/business.jpg",
+    "name": "Business Help",
+    "detail": "Eiusmod irure eiusmod reprehenderit fugiat fugiat aliquip enim Lorem. Ad dolor eu minim nulla est deserunt Lorem ipsum deserunt exercitation excepteur sit ipsum sit. Dolor proident reprehenderit nulla labore ad quis Lorem. Voluptate cupidatat officia aute adipisicing officia voluptate occaecat. Consectetur ipsum id veniam cupidatat irure velit. Pariatur veniam pariatur ut ea amet ad minim. Fugiat fugiat aliqua quis excepteur anim enim commodo ut nulla magna.\r\n"
+  },
+  {
+    "id": "625ba007038c0ad0d0997fff",
+    "price": "$2,733.45",
+    "picture": "./Pictures/criminal.jpg",
+    "name": "Criminal Defense",
+    "detail": "Ipsum duis commodo aute incididunt dolore quis labore nostrud. Qui voluptate aliquip culpa aliquip excepteur. Qui mollit cillum ea officia mollit. Velit et sint commodo ut amet deserunt id irure deserunt eiusmod culpa sint.\r\n"
+  },
+  {
+    "id": "625ba00718e5f05b19c43932",
+    "price": "$1,269.59",
+    "picture": "./Pictures/divorce.jpg",
+    "name": "Divorce",
+    "detail": "Non sunt consequat incididunt velit labore enim id. Deserunt qui voluptate laboris incididunt aute laboris magna sint. Aliqua incididunt officia ullamco ut elit fugiat labore id elit est laborum id culpa commodo. Id sunt qui deserunt velit veniam fugiat duis amet veniam sint proident. Culpa occaecat enim do officia pariatur officia. Fugiat id duis voluptate et anim velit elit quis aliquip Lorem.\r\n"
+  },
+  {
+    "id": "625ba007a70bde19cf75b69b",
+    "price": "$1,680.42",
+    "picture": "./Pictures/traffic.jpg",
+    "name": "Traffic Case",
+    "detail": "Sit eu ex sunt adipisicing mollit. Est laborum sunt mollit commodo tempor sit occaecat Lorem do incididunt nulla sint aliqua. Ea do sint elit occaecat dolore. Excepteur voluptate sit ex anim sunt aliqua sit occaecat incididunt pariatur duis. Quis voluptate magna id culpa et sit excepteur minim veniam ex voluptate sunt quis. Cillum incididunt ut commodo anim voluptate nostrud qui reprehenderit velit minim ea pariatur laboris consequat.\r\n"
+  },
+  {
+    "id": "625ba0076f810f429fa16a76",
+    "price": "$1,118.51",
+    "picture": "./Pictures/immigration.jpg",
+    "name": "Immigration",
+    "detail": "Laboris fugiat quis dolore cillum velit elit duis aliqua sit irure minim. Reprehenderit non do quis est veniam quis reprehenderit ullamco enim ullamco ex magna adipisicing excepteur. Officia adipisicing qui irure voluptate non magna consequat duis elit qui deserunt occaecat. Nulla esse consectetur fugiat occaecat. Eu id aliqua aliquip consectetur elit tempor ex incididunt deserunt in aute. Esse exercitation aute sit quis elit ad culpa eiusmod ea.\r\n"
+  },
+  {
+    "id": "625ba00742dec43762788694",
+    "price": "$1,678.62",
+    "picture": "./Pictures/personal-injury.jpg",
+    "name": "Personal Injury",
+    "detail": "Ex reprehenderit ad exercitation consectetur eiusmod velit ut aliqua voluptate eiusmod aliqua id Lorem elit. Aliquip occaecat consectetur consectetur veniam aliqua anim non minim. Aute magna esse veniam dolor sint magna excepteur amet laborum id anim.\r\n"
+  }
+]
