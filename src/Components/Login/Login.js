@@ -8,6 +8,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading/Loading";
 import SocialLogin from "./SocialLogin/SocialLogin";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const emailRef = useRef("");
@@ -35,9 +37,9 @@ const Login = () => {
     const email = emailRef.current.value;
     if (email) {
       await sendPasswordResetEmail(email);
-      alert("email sent");
+      toast("email sent");
     } else {
-      alert("please provide an email");
+      toast("please provide an email");
     }
   };
 
@@ -97,6 +99,7 @@ const Login = () => {
         </Form>
       </div>
       <SocialLogin></SocialLogin>
+      <ToastContainer />
     </div>
   );
 };
