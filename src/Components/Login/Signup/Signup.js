@@ -1,35 +1,49 @@
 import React, { useState } from "react";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import auth from "../../firebase.init";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
+import { sendEmailVerification } from "firebase/auth";
 
-const Login = () => {
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
-  const location = useLocation();
-  let from = location.state?.from?.pathname || "/";
+const Signup = () => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSingnup = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
+    const name = event.target.name.value;
 
-    signInWithEmailAndPassword(email, password);
+    createUserWithEmailAndPassword(email, password);
+    navigate("/home");
 
-    console.log(email, password);
+    console.log(email, password, name);
   };
-  if (user) {
-    navigate(from, { replace: true });
-  }
   return (
     <div>
       <h3 className="text-center mt-4">
-        <span className="text-info">Login</span> Here !!!
+        <span className="text-info">Sign Up</span> Here !!!
       </h3>
       <div className="container row  mx-auto mt-3">
-        <Form className="col-lg-6 mx-auto mt-5" onSubmit={handleSubmit}>
+        <Form className="col-lg-6 mx-auto mt-5" onSubmit={handleSingnup}>
+          <FloatingLabel
+            controlId="floatingInput"
+            label="Your Name"
+            className="mb-3"
+          >
+            <Form.Control
+              type="name"
+              name="name"
+              placeholder="Your name"
+              required
+            />
+          </FloatingLabel>
           <FloatingLabel
             controlId="floatingInput"
             label="Email address"
@@ -52,10 +66,10 @@ const Login = () => {
           </FloatingLabel>
 
           <p className="mt-3">
-            New Here ? <Link to="/signup">Sign Up</Link>
+            Already Have An Account ? <Link to="/login">Login</Link>
           </p>
           <Button className="mx-auto d-block" variant="primary" type="submit">
-            Login
+            Sign Up
           </Button>
         </Form>
       </div>
@@ -63,4 +77,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
