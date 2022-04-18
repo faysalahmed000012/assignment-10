@@ -1,16 +1,21 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import google from "../../../Images/google2 (1).png";
 
 const SocialLogin = () => {
+  const navigate = useNavigate();
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   let errorMassage;
   if (error) {
     errorMassage = (
       <p className="text-danger my-4 text-center">{error?.message}</p>
     );
+  }
+  if (user) {
+    navigate("/home");
   }
 
   return (

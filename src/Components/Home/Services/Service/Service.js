@@ -7,7 +7,7 @@ const Service = ({ service }) => {
   const navigate = useNavigate();
   return (
     <div>
-      <Card>
+      <Card style={{ height: "487px" }}>
         <Card.Img style={{ height: "200px" }} variant="top" src={picture} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>

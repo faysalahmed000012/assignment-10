@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 
 const Blogs = () => {
   return (
-    <div className="container">
+    <div style={{ height: "70vh" }} className="container">
       <h2 className="text-center text-info">Questions</h2>
       <Card>
         <Card.Body>
