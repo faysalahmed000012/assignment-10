@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   useCreateUserWithEmailAndPassword,
   useUpdateProfile,
@@ -8,8 +8,11 @@ import {
 import auth from "../../../firebase.init";
 import { sendEmailVerification } from "firebase/auth";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import Loading from "../../Shared/Loading/Loading";
 
 const Signup = () => {
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
@@ -24,7 +27,6 @@ const Signup = () => {
     const name = event.target.name.value;
 
     createUserWithEmailAndPassword(email, password);
-    navigate("/home");
 
     console.log(email, password, name);
     if (error) {
@@ -33,6 +35,12 @@ const Signup = () => {
       );
     }
   };
+  if (user) {
+    navigate(from, { replace: true });
+  }
+  if (loading) {
+    <Loading></Loading>;
+  }
   return (
     <div>
       <h3 className="text-center mt-4">

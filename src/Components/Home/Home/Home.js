@@ -4,6 +4,7 @@ import Reviews from "../Reviews/Reviews";
 import Services from "../Services/Services";
 
 const Home = () => {
+  // home and its components
   return (
     <div>
       <Banner></Banner>

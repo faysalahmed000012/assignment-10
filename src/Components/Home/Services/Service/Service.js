@@ -1,3 +1,4 @@
+import { ArrowNarrowRightIcon } from "@heroicons/react/solid";
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -15,8 +16,15 @@ const Service = ({ service }) => {
             Cost: {price}
           </Card.Subtitle>
           <Card.Text>{detail}</Card.Text>
-          <Button onClick={() => navigate("/checkout")} variant="outline-info">
-            Checkout
+          <Button
+            className="d-flex align-items-center justify-content-center"
+            onClick={() => navigate("/checkout")}
+            variant="outline-info"
+          >
+            Checkout{"  "}
+            <ArrowNarrowRightIcon
+              style={{ width: "20px", margin: "3px" }}
+            ></ArrowNarrowRightIcon>
           </Button>
         </Card.Body>
       </Card>

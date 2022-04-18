@@ -4,6 +4,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../../firebase.init";
+import CustomLink from "../../CustomLink/CustomLink";
 import Loading from "../Loading/Loading";
 
 const Header = () => {
@@ -20,24 +21,24 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Link className="nav-link" to="home">
+              <CustomLink className="nav-link" to="home">
                 Home
-              </Link>
-              <Link className="nav-link" to="home#services">
+              </CustomLink>
+              <CustomLink className="nav-link" to="home#services">
                 Services
-              </Link>
-              <Link className="nav-link" to="/blogs">
+              </CustomLink>
+              <CustomLink className="nav-link" to="/blogs">
                 Blogs
-              </Link>
-              <Link className="nav-link" to="/about">
+              </CustomLink>
+              <CustomLink className="nav-link" to="/about">
                 About
-              </Link>
+              </CustomLink>
               {user ? (
                 <button onClick={() => signOut(auth)}>Sign Out</button>
               ) : (
-                <Link className="nav-link" to="/login">
+                <CustomLink className="nav-link" to="/login">
                   Login
-                </Link>
+                </CustomLink>
               )}
             </Nav>
           </Navbar.Collapse>
